@@ -1,0 +1,53 @@
+[flake8]
+# Maximum line length
+max-line-length = 88
+
+# List of error codes to ignore
+ignore = 
+    # E203: whitespace before ':' (conflicts with black formatter)
+    E203,
+    # W503: line break before binary operator (conflicts with black formatter)
+    W503,
+    # E501: line too long (handled by max-line-length)
+    E501
+
+# Directories to exclude from checking
+exclude = 
+    .git,
+    __pycache__,
+    .venv,
+    venv,
+    env,
+    .env,
+    migrations,
+    .tox,
+    .pytest_cache,
+    node_modules,
+    build,
+    dist,
+    *.egg-info
+
+# Maximum complexity for functions
+max-complexity = 10
+
+# Import order style (optional, works well with isort)
+import-order-style = google
+
+# Show source code for each error
+show-source = True
+
+# Count the number of occurrences of each error/warning code
+statistics = True
+
+# Enable specific checks
+select = 
+    E,  # pycodestyle errors
+    W,  # pycodestyle warnings
+    F,  # pyflakes
+    C90,  # mccabe complexity
+
+# Additional checks for Django projects
+extend-ignore = 
+    # Django specific ignores
+    DJ01,  # Avoid using null=True on string-based fields
+    DJ03,  # Avoid using null=True on boolean fields
